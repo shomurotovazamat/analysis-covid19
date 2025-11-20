@@ -1,11 +1,21 @@
 import psycopg2
+from dotenv import load_dotenv
 import pandas as pd
 from elasticsearch import Elasticsearch
 import pandas as pd
 import matplotlib.pyplot as plt
 from sqlalchemy import create_engine
+import os
 
-engine = create_engine("postgresql+psycopg2://postgres:1234@localhost:5433/covid")
+
+load_dotenv()
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASS = os.getenv("DB_PASS")
+
+engine = create_engine(f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
 df = pd.read_sql("SELECT * FROM country_wise_latest", engine)
 
 es = Elasticsearch("http://localhost:9200")
