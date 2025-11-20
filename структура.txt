@@ -1,0 +1,13 @@
+CSV-файлы
+     │
+     ▼
+Node.js ETL loader
+     │
+     │  (1) Записывает в PostgreSQL
+     │
+     │  (2) Индексы в Elasticsearch
+     ▼
+Python Analytics
+     │
+     ▼
+Графика Matplotlib
