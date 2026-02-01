@@ -1,4 +1,3 @@
-# Код строит гистограмму, показывающую распределение процента выздоровевших от COVID-19 по странам.
 import numpy as np
 import pandas as pd
 import warnings
